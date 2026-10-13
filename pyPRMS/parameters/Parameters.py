@@ -371,9 +371,10 @@ class Parameters(object):
                 else:
                     self.__dimensions.add(bounded_dim_name)
 
-                con.print(f'[orange3]WARNING[/]: Bounded parameter, {name}, requires dimension, {bounded_dim_name}, '
-                          f'which is missing from global dimensions; '
-                          f'added with size = {self.__dimensions.get(bounded_dim_name).size}')
+                if self.verbose:
+                    con.print(f'[orange3]WARNING[/]: Bounded parameter, {name}, requires dimension, {bounded_dim_name}, '
+                              f'which is missing from global dimensions; '
+                              f'added with size = {self.__dimensions.get(bounded_dim_name).size}')
 
         self.__parameters[name] = Parameter(name=name, meta=self.metadata, global_dims=self.__dimensions, verbose=self.verbose)
 
