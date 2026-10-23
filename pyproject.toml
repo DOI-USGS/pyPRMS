@@ -8,12 +8,21 @@ description = "Python library for Precipitation-Runoff Modeling System"
 readme = "README.md"
 dynamic = ["version"]
 requires-python = ">=3.10,<3.15"
-license = {file = "LICENSE.md"}
-authors = [{name = "Parker Norton", email = "pnorton@usgs.gov"}, ]
+license = "CC0-1.0"
+license-files = ["LICENSE.md"]
+authors = [{ name = "U.S. Geological Survey" },]
 maintainers = [{name = "Parker Norton", email = "pnorton@usgs.gov"}, ]
-keywords = ["PRMS", "NHM", "streamflow", "hydrology", "surface"]
+keywords = ["PRMS", "NHM", "streamflow", "hydrology", "surface water"]
 classifiers = ["Development Status :: 4 - Beta",
-               "Programming Language :: Python :: 3", ]
+               "Intended Audience :: Science/Research",
+               "Operating System :: OS Independent",
+               "Programming Language :: Python :: 3",
+               "Programming Language :: Python :: 3 :: Only",
+               "Programming Language :: Python :: 3.10",
+               "Programming Language :: Python :: 3.11",
+               "Programming Language :: Python :: 3.12",
+               "Programming Language :: Python :: 3.13",
+               "Programming Language :: Python :: 3.14",]
 
 dependencies = ["cartopy",
     "dask",
