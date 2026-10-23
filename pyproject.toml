@@ -8,11 +8,11 @@ description = "Python library for Precipitation-Runoff Modeling System"
 readme = "README.md"
 dynamic = ["version"]
 requires-python = ">=3.10,<3.15"
-license = {file = "LICENSE"}
+license = {file = "LICENSE.md"}
 authors = [{name = "Parker Norton", email = "pnorton@usgs.gov"}, ]
 maintainers = [{name = "Parker Norton", email = "pnorton@usgs.gov"}, ]
 keywords = ["PRMS", "NHM", "streamflow", "hydrology", "surface"]
-classifiers = ["Development Status :: 3 - Alpha",
+classifiers = ["Development Status :: 4 - Beta",
                "Programming Language :: Python :: 3", ]
 
 dependencies = ["cartopy",
@@ -28,9 +28,6 @@ dependencies = ["cartopy",
     "pyproj",
     "rich",
     "shapely",
-    "sphinx",
-    "sphinx-autodoc-typehints",
-    "sphinx-book-theme",
     "xarray",
     "zarr"]
 
@@ -42,7 +39,10 @@ dev = ["mypy",
        "pytest-cov",
        "pytest-xdist",
        "pytest-datafiles",
-       "coverage[toml]", ]
+       "coverage[toml]",
+       "sphinx",
+       "sphinx-autodoc-typehints",
+       "sphinx-book-theme",]
 
 [project.urls]
 Repository = "https://github.com/DOI-USGS/pyPRMS.git"
