@@ -1,6 +1,7 @@
 import pytest
 import os
 import shutil
+from pathlib import Path
 
 from pyPRMS.summary.OutputCSV import OutputCSV
 from pyPRMS.summary.OutputVariable import OutputVariable
@@ -20,7 +21,7 @@ def datadir(tmpdir, request):
     if os.path.isdir(test_dir):
         shutil.copytree(test_dir, str(tmpdir), dirs_exist_ok=True)
 
-    return tmpdir
+    return Path(tmpdir)
 
 
 class TestOutputCSV:
