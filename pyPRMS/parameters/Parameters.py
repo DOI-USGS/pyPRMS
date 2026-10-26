@@ -22,7 +22,7 @@ from packaging.version import Version
 from pathlib import Path
 from types import MappingProxyType
 from typing import Any, Literal, cast
-from cartopy.mpl.gridliner import LONGITUDE_FORMATTER, LATITUDE_FORMATTER  # type: ignore
+from cartopy.mpl.gridliner import LongitudeFormatter, LatitudeFormatter  # type: ignore
 
 from ..control.Control import Control
 from ..dimensions.Dimensions import Dimensions
