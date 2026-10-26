@@ -151,16 +151,16 @@ class OutputCSV:
         df = pd.read_csv(self.__filename, sep=self.sep, skipinitialspace=True,
                          header=None, skiprows=2, usecols=sel_cols)
 
-        df.rename(columns=self.time_col_names, inplace=True)
+        df = df.rename(columns=self.time_col_names)
 
-        df.rename(columns=self.__col_var, inplace=True)
+        df = df.rename(columns=self.__col_var)
 
         if len(self.time_col_names) > 1:
             df['time'] = pd.to_datetime(df[self.time_col_names.values()], yearfirst=True)
-            df.drop(columns=self.time_col_names.values(), inplace=True)
+            df = df.drop(columns=self.time_col_names.values())
         else:
-            df.rename(columns={self.time_col_names[0]: 'time'}, inplace=True)
+            df = df.rename(columns={self.time_col_names[0]: 'time'})
 
-        df.set_index('time', inplace=True)
+        df = df.set_index('time')
 
         self.__data = df

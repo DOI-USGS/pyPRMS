@@ -655,7 +655,7 @@ class Parameters(object):
 
                     # Create a DataFrame of the parameter
                     param_data = param_data.merge(param_id, left_index=True, right_index=True)
-                    param_data.set_index('nhm_id', inplace=True)
+                    param_data = param_data.set_index('nhm_id')
                     param_data.index.name = 'nhm_id'
             else:
                 param_data = self.get('nhm_id').as_dataframe
@@ -666,16 +666,15 @@ class Parameters(object):
 
                     # Create a DataFrame of the parameter
                     param_data = param_data.merge(param_id, left_index=True, right_index=True)
-                    param_data.set_index('nhm_seg', inplace=True)
+                    param_data = param_data.set_index('nhm_seg')
                     param_data.index.name = 'nhm_seg'
             else:
                 param_data = self.get('nhm_seg').as_dataframe
         elif name == 'snarea_curve':
             # Special handling for snarea_curve parameter
             param_data = pd.DataFrame(cparam.as_dataframe.values.reshape((-1, 11)))
-            param_data.rename(columns={k: k+1 for k in param_data.columns},   # type: ignore
-                              index={k: k+1 for k in param_data.index},
-                              inplace=True)
+            param_data = param_data.rename(columns={k: k+1 for k in param_data.columns},   # type: ignore
+                                           index={k: k+1 for k in param_data.index})
             param_data.index.name = 'curve_index'
         return param_data
 

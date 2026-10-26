@@ -505,14 +505,14 @@ class Cbh(object):
             df[col] = pd.to_numeric(df[col], downcast='integer')
 
         # Rename columns with time information
-        df.rename(columns=time_col_names, inplace=True)
+        df = df.rename(columns=time_col_names)
 
         # Rename columns with local model indices
         ren_dict = {k + 6: k + 1 for k in range(len(df.columns))}
-        df.rename(columns=ren_dict, inplace=True)
+        df = df.rename(columns=ren_dict)
 
         df['time'] = pd.to_datetime(df[time_col_names.values()], yearfirst=True)
-        df.drop(columns=time_col_names.values(), inplace=True)
-        df.set_index('time', inplace=True)
+        df = df.drop(columns=time_col_names.values())
+        df = df.set_index('time')
 
         return df

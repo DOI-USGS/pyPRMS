@@ -113,7 +113,7 @@ class TestParameters:
                                     'tmin_cbh_adj_10': [10.9, 22.21, 10.9, 22.21],
                                     'tmin_cbh_adj_11': [11.1, 23.22, 11.1, 23.22],
                                     'tmin_cbh_adj_12': [12.11, 24.23, 12.11, 24.23]}, dtype=np.float32)
-        expected_df.rename(index={k: k + 1 for k in expected_df.index}, inplace=True)
+        expected_df = expected_df.rename(index={k: k + 1 for k in expected_df.index})
         expected_df.index.name = 'model_hru_idx'
 
         pd.testing.assert_frame_equal(df, expected_df)
@@ -121,7 +121,7 @@ class TestParameters:
     def test_as_dataframe_poi(self, pdb_instance):
         df = pdb_instance.get('poi_gage_id').as_dataframe
         expected_df = pd.DataFrame({'poi_gage_id': ['01234567', '12345678', '23456789', '34567890']})
-        expected_df.rename(index={k: k + 1 for k in expected_df.index}, inplace=True)
+        expected_df = expected_df.rename(index={k: k + 1 for k in expected_df.index})
         expected_df.index.name = 'model_poi_idx'
 
         pd.testing.assert_frame_equal(df, expected_df)

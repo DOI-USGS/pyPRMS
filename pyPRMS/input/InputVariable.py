@@ -82,7 +82,7 @@ class InputVariable:
             col_names[xx] = xx.split('_', 1)[1]
 
         self.__data = data_in.copy()
-        self.__data.rename(columns=col_names, inplace=True)
+        self.__data = self.__data.rename(columns=col_names)
 
     @property
     def _id_column(self) -> str:

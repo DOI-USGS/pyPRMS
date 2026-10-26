@@ -124,7 +124,7 @@ class DataFile:
             frames = []
             for cvar in self.input_variables.keys():
                 tmp_df = self.get(cvar).data.copy()
-                tmp_df.rename(columns=self.get(cvar).full_column_names, inplace=True)
+                tmp_df = tmp_df.rename(columns=self.get(cvar).full_column_names)
                 frames.append(tmp_df)
             self.__data_combined = pd.concat(frames, axis=1)
         return self.__data_combined
@@ -267,8 +267,8 @@ class DataFile:
             self.__data_raw = pd.read_csv(fhdl, sep=r'\s+', header=None, na_values=self.__missing,
                                           names=col_names, engine='c', skipinitialspace=True)
             self.__data_raw['time'] = pd.to_datetime(self.__data_raw[time_col_names], yearfirst=True)
-            self.__data_raw.drop(columns=time_col_names, inplace=True)
-            self.__data_raw.set_index('time', inplace=True)
+            self.__data_raw = self.__data_raw.drop(columns=time_col_names)
+            self.__data_raw = self.__data_raw.set_index('time')
 
             # Add data to each input variable
             self._add_variable_data()

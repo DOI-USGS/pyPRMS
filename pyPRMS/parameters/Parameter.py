@@ -129,13 +129,12 @@ class Parameter(object):
 
         if len(self.data_raw.shape) == 2:
             df = pd.DataFrame(self.data_raw)
-            df.rename(columns=lambda xx: '{}_{}'.format(self.name,
-                                                        df.columns.get_loc(xx) + 1), inplace=True)   # type: ignore
+            df = df.rename(columns=lambda xx: '{}_{}'.format(self.name, df.columns.get_loc(xx) + 1))   # type: ignore
         else:
             # Assuming 1D array
             df = pd.DataFrame(self.data_raw, columns=[self.name])   # type: ignore
 
-        df.rename(index={k: k + 1 for k in df.index}, inplace=True)
+        df = df.rename(index={k: k + 1 for k in df.index})
 
         if self.is_hru_param():
             idx_name = 'model_hru_idx'
