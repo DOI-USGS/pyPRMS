@@ -232,8 +232,8 @@ class OutputVariables:
     #         gl = ax.gridlines(crs=ccrs.PlateCarree(), draw_labels=True)
     #         gl.top_labels = None
     #         gl.right_labels = None
-    #         gl.xformatter = LONGITUDE_FORMATTER
-    #         gl.yformatter = LATITUDE_FORMATTER
+    #         gl.xformatter = LongitudeFormatter()
+    #         gl.yformatter = LatitudeFormatter()
     #         # ax.gridlines()
     #         ax.set_extent([minx, maxx, miny, maxy], crs=crs_proj)
     #

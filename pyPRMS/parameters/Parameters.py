@@ -22,7 +22,7 @@ from packaging.version import Version
 from pathlib import Path
 from types import MappingProxyType
 from typing import Any, Literal, cast
-from cartopy.mpl.gridliner import LongitudeFormatter, LatitudeFormatter  # type: ignore
+from cartopy.mpl.ticker import LongitudeFormatter, LatitudeFormatter  # type: ignore
 
 from ..control.Control import Control
 from ..dimensions.Dimensions import Dimensions
@@ -939,8 +939,8 @@ class Parameters(object):
                     gl = ax.gridlines(crs=ccrs.PlateCarree(), draw_labels=True)
                     gl.top_labels = None
                     gl.right_labels = None
-                    gl.xformatter = LONGITUDE_FORMATTER
-                    gl.yformatter = LATITUDE_FORMATTER
+                    gl.xformatter = LongitudeFormatter()
+                    gl.yformatter = LatitudeFormatter()
 
                     ax.set_extent([minx, maxx, miny, maxy], crs=crs_proj)
 
@@ -1043,8 +1043,8 @@ class Parameters(object):
                     gl = ax.gridlines(crs=ccrs.PlateCarree(), draw_labels=True)
                     gl.top_labels = None
                     gl.right_labels = None
-                    gl.xformatter = LONGITUDE_FORMATTER
-                    gl.yformatter = LATITUDE_FORMATTER
+                    gl.xformatter = LongitudeFormatter()
+                    gl.yformatter = LatitudeFormatter()
 
                     ax.set_extent([minx, maxx, miny, maxy], crs=crs_proj)
 
